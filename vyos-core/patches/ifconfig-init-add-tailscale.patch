@@ -1,0 +1,23 @@
+diff --git a/python/vyos/ifconfig/__init__.py b/python/vyos/ifconfig/__init__.py
+index c5d83d2..a828ca2 100644
+--- a/python/vyos/ifconfig/__init__.py
++++ b/python/vyos/ifconfig/__init__.py
+@@ -37,3 +37,4 @@ from vyos.ifconfig.wireless import WiFiIf
+ from vyos.ifconfig.l2tpv3 import L2TPv3If
+ from vyos.ifconfig.macsec import MACsecIf
+ from vyos.ifconfig.wwan import WWANIf
++from vyos.ifconfig.tailscale import TailscaleIf
+\ No newline at end of file
+diff --git a/src/op_mode/show_interfaces.py b/src/op_mode/show_interfaces.py
+index 281d25e..ec6e832 100755
+--- a/src/op_mode/show_interfaces.py
++++ b/src/op_mode/show_interfaces.py
+@@ -28,7 +28,7 @@ from vyos.util import cmd, call
+ 
+ 
+ # interfaces = Sections.reserved()
+-interfaces = ['eno', 'ens', 'enp', 'enx', 'eth', 'vmnet', 'lo', 'tun', 'wan', 'pppoe', 'pppoa', 'adsl']
++interfaces = ['eno', 'ens', 'enp', 'enx', 'eth', 'vmnet', 'lo', 'tun', 'wan', 'pppoe', 'pppoa', 'adsl', 'tailscale']
+ glob_ifnames = '/sys/class/net/({})*'.format('|'.join(interfaces))
+ 
+ 
