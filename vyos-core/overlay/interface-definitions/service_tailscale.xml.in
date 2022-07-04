@@ -94,6 +94,12 @@
               <valueless/>
             </properties>
           </leafNode>
+          <leafNode name="ssh">
+            <properties>
+              <help>Run an SSH server, permitting access per tailnet admin's declared policy</help>
+              <valueless/>
+            </properties>
+          </leafNode>
         </children>
       </node>
     </children>

@@ -52,18 +52,21 @@ def apply(tailscale):
         arguments += ["--advertise-exit-node"]
     if "shields_up" in tailscale:
         arguments += ["--shields-up"]
+    if "accept_routes" in tailscale:
+        arguments += ["--accept-routes"]
+    if "ssh" in tailscale:
+        arguments += ["--ssh"]
+
 
     # Default true handlers
     if "host_routes" not in tailscale:
         arguments += ["--host-routes=false"]
     if "accept_dns" not in tailscale:
         arguments += ["--accept-dns=false"]
-    if "manage-netfilter" not in tailscale:
+    if "manage_netfilter" not in tailscale:
         arguments += ["--netfilter-mode", "off"]
     if "snat_subnet_routes" not in tailscale:
         arguments += ["--snat-subnet-routes=false"]
-    if "accept_routes" not in tailscale:
-        arguments += ["--accept-routes=false"]
 
     # Because tailscale may ask us to login, which will hang forever, set the timeout value
     # this is pretty hacky...
