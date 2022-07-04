@@ -56,7 +56,8 @@ def apply(tailscale):
         arguments += ["--accept-routes"]
     if "ssh" in tailscale:
         arguments += ["--ssh"]
-
+    if "hostname" in tailscale:
+        arguments += ["--hostname", tailscale["hostname"]]
 
     # Default true handlers
     if "host_routes" not in tailscale:

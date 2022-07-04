@@ -46,6 +46,11 @@
               </constraint>
             </properties>
           </leafNode>
+          <leafNode name="hostname">
+            <properties>
+              <help>hostname to use instead of the one provided by the OS</help>
+            </properties>
+          </leafNode>
           <leafNode name="exit-node-allow-lan-access">
             <properties>
               <help>Allow direct access to the local network when routing traffic as an exit node</help>
