@@ -46,6 +46,11 @@
               </constraint>
             </properties>
           </leafNode>
+          <leafNode name="hostname">
+            <properties>
+              <help>hostname to use instead of the one provided by the OS</help>
+            </properties>
+          </leafNode>
           <leafNode name="exit-node-allow-lan-access">
             <properties>
               <help>Allow direct access to the local network when routing traffic as an exit node</help>
@@ -91,6 +96,12 @@
           <leafNode name="shields-up">
             <properties>
               <help>Block incoming connections from other devices from the Tailscale network</help>
+              <valueless/>
+            </properties>
+          </leafNode>
+          <leafNode name="ssh">
+            <properties>
+              <help>Run an SSH server, permitting access per tailnet admin's declared policy</help>
               <valueless/>
             </properties>
           </leafNode>
