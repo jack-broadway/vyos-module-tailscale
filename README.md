@@ -10,7 +10,7 @@ Add this to your vyos-modular config
 modules:
   - type: git
     url: https://github.com/jack-broadway/vyos-module-tailscale.git
-    version: main
+    version: current
 ```  
 
 For ami, crux and equuleus builds, use `version: main`  
