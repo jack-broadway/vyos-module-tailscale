@@ -16,8 +16,8 @@ index 281d25e..ec6e832 100755
  
  
  # interfaces = Sections.reserved()
--interfaces = ['eno', 'ens', 'enp', 'enx', 'eth', 'vmnet', 'lo', 'tun', 'wan', 'pppoe', 'pppoa', 'adsl']
-+interfaces = ['eno', 'ens', 'enp', 'enx', 'eth', 'vmnet', 'lo', 'tun', 'wan', 'pppoe', 'pppoa', 'adsl', 'tailscale']
+-interfaces = ['eno', 'ens', 'enp', 'enx', 'eth', 'vmnet', 'lo', 'tun', 'wan', 'pppoe']
++interfaces = ['eno', 'ens', 'enp', 'enx', 'eth', 'vmnet', 'lo', 'tun', 'wan', 'pppoe', 'tailscale']
  glob_ifnames = '/sys/class/net/({})*'.format('|'.join(interfaces))
  
  
