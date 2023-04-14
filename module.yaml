@@ -1,7 +1,7 @@
 name: tailscale
 version: 1.0.0
 repositories:
-  - apt_entry: "deb https://pkgs.tailscale.com/stable/debian bullseye main" 
+  - apt_entry: "deb https://pkgs.tailscale.com/stable/debian bookworm main" 
     gpg_key: "tailscale.gpg"
 packages:
   - tailscale
