@@ -6,15 +6,4 @@ diff --git a/python/vyos/ifconfig/__init__.py b/python/vyos/ifconfig/__init__.py
  from vyos.ifconfig.wwan import WWANIf
  from vyos.ifconfig.sstpc import SSTPCIf
 +from vyos.ifconfig.tailscale import TailscaleIf
-diff --git a/src/op_mode/show_interfaces.py b/src/op_mode/show_interfaces.py
---- a/src/op_mode/show_interfaces.py
-+++ b/src/op_mode/show_interfaces.py
-@@ -28,7 +28,7 @@ from vyos.util import cmd, call
- 
- 
- # interfaces = Sections.reserved()
--interfaces = ['eno', 'ens', 'enp', 'enx', 'eth', 'vmnet', 'lo', 'tun', 'wan', 'pppoe']
-+interfaces = ['eno', 'ens', 'enp', 'enx', 'eth', 'vmnet', 'lo', 'tun', 'wan', 'pppoe', 'tailscale']
- glob_ifnames = '/sys/class/net/({})*'.format('|'.join(interfaces))
- 
  
