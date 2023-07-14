@@ -46,8 +46,10 @@ def apply(tailscale):
         arguments += ["--authkey", tailscale["auth_key"]]
     if "netfilter_mode" in tailscale:
         arguments += ["--netfilter-mode", tailscale["netfilter_mode"]]
-    if "exit_node_allow_lan_access" in tailscale:
-        arguments += ["--exit-node-allow-lan-access=true"]
+    if "exit_node" in tailscale:
+        arguments += ["--exit-node", tailscale["exit_node"]]
+        if "exit_node_allow_lan_access" in tailscale:
+            arguments += ["--exit-node-allow-lan-access=true"]
     if "advertise_exit_node" in tailscale:
         arguments += ["--advertise-exit-node"]
     if "shields_up" in tailscale:
