@@ -51,6 +51,23 @@
               <help>hostname to use instead of the one provided by the OS</help>
             </properties>
           </leafNode>
+          <leafNode name="exit-node">
+            <properties>
+              <help>Tailscale exit node to route traffic through</help>
+              <valueHelp>
+                <format>ipv4</format>
+                <description>IPv4 address of exit node</description>
+              </valueHelp>
+              <valueHelp>
+                <format>ipv6</format>
+                <description>IPv6 address of exit node</description>
+              </valueHelp>
+              <constraint>
+                <validator name="ipv4-address"/>
+                <validator name="ipv6-address"/>
+              </constraint>
+            </properties>
+          </leafNode>
           <leafNode name="exit-node-allow-lan-access">
             <properties>
               <help>Allow direct access to the local network when routing traffic as an exit node</help>
