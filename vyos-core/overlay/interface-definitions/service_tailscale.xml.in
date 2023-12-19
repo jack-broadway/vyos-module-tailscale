@@ -104,6 +104,12 @@
               <valueless/>
             </properties>
           </leafNode>
+          <leafNode name="advertise-connector">
+            <properties>
+              <help>Advertise this node as an app connector</help>
+              <valueless/>
+            </properties>
+          </leafNode>
           <leafNode name="accept-routes">
             <properties>
               <help>Accept subnet routes that other nodes advertise</help>

@@ -52,6 +52,8 @@ def apply(tailscale):
             arguments += ["--exit-node-allow-lan-access=true"]
     if "advertise_exit_node" in tailscale:
         arguments += ["--advertise-exit-node"]
+    if "advertise_connector" in tailscale:
+        arguments += ["--advertise-connector"]
     if "shields_up" in tailscale:
         arguments += ["--shields-up"]
     if "accept_routes" in tailscale:
