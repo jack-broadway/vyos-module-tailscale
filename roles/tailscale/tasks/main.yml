@@ -1,0 +1,54 @@
+- name: Download tailscale GPG repo key
+  ansible.builtin.get_url:
+    url: "https://pkgs.tailscale.com/stable/debian/{{ vyos_debian_codename }}.noarmor.gpg"
+    dest: "{{ vyos_install_root }}/usr/share/keyrings/tailscale-archive-keyring.gpg"
+    mode: '0644'
+
+- name: Download tailscale repo config
+  ansible.builtin.get_url:
+    url: "https://pkgs.tailscale.com/stable/debian/{{ vyos_debian_codename }}.tailscale-keyring.list"
+    dest: "{{ vyos_install_root }}/etc/apt/sources.list.d/tailscale.list"
+    mode: '0644'
+
+- name: apt-get update
+  command: chroot {{ vyos_install_root }} apt-get update
+
+- name: install tailscale
+  command: chroot {{ vyos_install_root }} apt-get install -y tailscale
+  
+- name: Copy tailscaled defaults
+  ansible.builtin.copy:
+    src: files/tailscaled-defaults
+    dest: "{{ vyos_install_root }}/etc/default/tailscaled"
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Create tailscale service config directory
+  ansible.builtin.file:
+    path: "{{ vyos_install_root }}/etc/systemd/system/tailscaled.service.d"
+    state: directory
+
+- name: Copy tailscaled service config
+  ansible.builtin.copy:
+    src: files/tailscaled-override.conf
+    dest: "{{ vyos_install_root }}/etc/systemd/system/tailscaled.service.d/override.conf"
+    owner: root
+    group: root
+    mode: '0644'
+  
+- name: apt-get clean
+  command: chroot {{ vyos_install_root }} apt-get clean
+
+- name: delete apt lists from cache
+  command: chroot {{ vyos_install_root }} rm -rf /var/lib/apt/lists/
+
+- name: Delete tailscale.list
+  file:
+    path: "{{ vyos_install_root }}/etc/apt/sources.list.d/tailscale.list"
+    state: absent
+
+- name: Delete tailscale-archive-keyring.gpg
+  file:
+    path: "{{ vyos_install_root }}/usr/share/keyrings/tailscale-archive-keyring.gpg"
+    state: absent
