@@ -1,9 +1,0 @@
-diff --git a/python/vyos/ifconfig/__init__.py b/python/vyos/ifconfig/__init__.py
---- a/python/vyos/ifconfig/__init__.py
-+++ b/python/vyos/ifconfig/__init__.py
-@@ -38,3 +38,4 @@ from vyos.ifconfig.macsec import MACsecIf
- from vyos.ifconfig.veth import VethIf
- from vyos.ifconfig.wwan import WWANIf
- from vyos.ifconfig.sstpc import SSTPCIf
-+from vyos.ifconfig.tailscale import TailscaleIf
- 
