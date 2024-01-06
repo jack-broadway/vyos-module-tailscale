@@ -4,7 +4,7 @@ from sys import exit
 from subprocess import TimeoutExpired
 
 from vyos.config import Config
-from vyos.util import call, run
+from vyos.utils.process import call, run
 from vyos import ConfigError
 from vyos import airbag
 
