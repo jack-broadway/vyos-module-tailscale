@@ -14,3 +14,7 @@ modules:
     url: https://github.com/jack-broadway/vyos-module-tailscale.git
     version: main
 ```
+# Developing
+
+If there is common code between vyos versions, create a symlink to that folder/file to the oldest common version 
+(i.e if your code works for current, saggita, and equuleus; current and saggita should symlink to the equuleus implementation)
