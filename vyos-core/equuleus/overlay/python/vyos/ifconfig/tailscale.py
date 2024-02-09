@@ -14,3 +14,11 @@ class TailscaleIf(Interface):
             "bridgeable": False,
         },
     }
+
+    def _create(self):
+        # we can not create this interface as it is managed outside
+        pass
+
+    def _delete(self):
+        # we can not create this interface as it is managed outside
+        pass

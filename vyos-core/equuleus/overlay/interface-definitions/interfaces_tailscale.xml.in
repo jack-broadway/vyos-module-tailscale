@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<interfaceDefinition>
+  <node name="interfaces">
+    <children>
+      <tagNode name="tailscale" owner="${vyos_conf_scripts_dir}/interfaces_tailscale.py">
+        <properties>
+          <help>Tailscale Interface</help>
+          <priority>379</priority>
+          <constraint>
+            <regex>^tailscale0$</regex>
+          </constraint>
+          <constraintErrorMessage>Tailscale interface must be named tailscale0</constraintErrorMessage>
+          <valueHelp>
+            <format>tailscaleN</format>
+            <description>Tailscale interface name</description>
+          </valueHelp>
+        </properties>
+        <children>
+          #include <include/generic-description.xml.i>
+          <node name="ip">
+            <properties>
+              <help>IPv4 routing parameters</help>
+            </properties>
+            <children>
+              #include <include/interface/adjust-mss.xml.i>
+            </children>
+          </node>
+        </children>
+      </tagNode>
+    </children>
+  </node>
+</interfaceDefinition>
